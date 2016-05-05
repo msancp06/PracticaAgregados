@@ -28,7 +28,8 @@ class Almacen{
 	 * Constructor de la clase que inicializa sus atributos
 	 */
 	Almacen(){
-		//COMPLETAR
+		this.productos = new Producto[MAXIMO_PROD];
+		this.siguiente = 0;
 	}
 
 	/**
@@ -40,7 +41,11 @@ class Almacen{
 	 * y falso en caso contrario
 	 */
 	boolean anyadir(Producto producto){
-		//COMPLETAR
+		ordenar()
+		boolean repe;
+		repe = false;
+		
+		if(buscar())
 		return false;
 	}
 
@@ -65,8 +70,34 @@ class Almacen{
 	 * o nulo en caso contrario
 	 */
 	Producto buscar(String nombre){
-		//COMPLETAR
-		return null;
+		Producto producto = null;
+		int mitad, limiteInferior, limiteSuperior;
+		boolean comparar;
+		
+		mitad = 0;
+		comparar = false;
+		limiteInferior = 0;
+		limiteSuperior = this.productos.length - 1;
+		
+		while ((limiteInferior <= limiteSuperior) && (elemento == null)){
+			
+			mitad = (limiteInferior + limiteSuperior) / 2;
+			if (!this.productos[mitad].esIgualA(nombre)){
+				comparar = this.productos[mitad].esMenor(nombre);
+				if (comparar){
+					limiteSuperior = mitad - 1;
+				}else{
+					limiteInferior = mitad + 1;
+				} 
+			}else{
+				producto = this.productos[mitad];
+			}
+			
+		}
+		
+		
+		
+		return producto;
 	}
 
 	/**

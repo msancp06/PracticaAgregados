@@ -36,7 +36,7 @@ class Supermercado{
 	 * y falso en caso contrario
 	 */
 	boolean anyadir(Producto producto){
-		//COMPLETAR
+		if (producto)
 		return false;
 	}
 

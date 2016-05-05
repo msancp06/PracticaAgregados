@@ -13,6 +13,7 @@ class PruebaSupermercado{
 		supermercado = new Supermercado("Galenas");
 		supermercado.anyadir(new Producto("libreta", 3.5, 10));
 		supermercado.anyadir(new Producto("lapiz", 1.0, 100));
+		supermercado.anyadir(new Producto("lapiz", 1.0, 100));
 		supermercado.anyadir(new Producto("papel", 2, 50));
 		supermercado.anyadir(new Producto("goma", 0.5, 60));
 		supermercado.anyadir(new Producto("carpeta", 1.5, 200));
