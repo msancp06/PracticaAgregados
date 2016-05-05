@@ -41,12 +41,28 @@ class Almacen{
 	 * y falso en caso contrario
 	 */
 	boolean anyadir(Producto producto){
-		ordenar()
+		
 		boolean repe;
 		repe = false;
-		
-		if(buscar())
-		return false;
+		if (this.siguiente != 0){
+			if (this.siguiente != MAXIMO_PROD - 1){
+				if (existe(producto)){
+					System.out.println("Error, el producto " + producto.obtenerNombre() + " ya se encuentra en el almacen");
+				}else{
+					productos[this.siguiente++] = producto;
+					repe = true;
+				}
+			}else{
+				System.out.println("La lista de productos esta llena");
+			}
+		}else{
+			productos[this.siguiente++] = producto;
+			repe = true;
+		}
+		if (this.siguiente > 1){
+			ordenar();
+		}
+		return repe;
 	}
 
 	/**
@@ -57,8 +73,8 @@ class Almacen{
 	 * y falso en caso contrario
 	 */
 	boolean existe(Producto producto){
-		//COMPLETAR
-		return false;
+		
+		return (buscar(producto.obtenerNombre()) != null);
 	}
 
 	/**
@@ -77,9 +93,9 @@ class Almacen{
 		mitad = 0;
 		comparar = false;
 		limiteInferior = 0;
-		limiteSuperior = this.productos.length - 1;
+		limiteSuperior = this.siguiente - 1;
 		
-		while ((limiteInferior <= limiteSuperior) && (elemento == null)){
+		while ((limiteInferior <= limiteSuperior) && (producto == null)){
 			
 			mitad = (limiteInferior + limiteSuperior) / 2;
 			if (!this.productos[mitad].esIgualA(nombre)){
@@ -92,11 +108,7 @@ class Almacen{
 			}else{
 				producto = this.productos[mitad];
 			}
-			
 		}
-		
-		
-		
 		return producto;
 	}
 

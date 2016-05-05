@@ -36,8 +36,8 @@ class Supermercado{
 	 * y falso en caso contrario
 	 */
 	boolean anyadir(Producto producto){
-		if (producto)
-		return false;
+		
+		return almacen.anyadir(producto);
 	}
 
 	/**
@@ -49,8 +49,8 @@ class Supermercado{
 	 * contrario.
 	 */
 	Producto buscar(String producto){
-		//COMPLETAR
-		return null;
+		
+		return almacen.buscar(producto);
 	}
 
 	/**
