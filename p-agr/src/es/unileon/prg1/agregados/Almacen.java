@@ -58,6 +58,8 @@ class Almacen{
 		}else{
 			productos[this.siguiente++] = producto;
 			repe = true;
+			System.out.println("Aniadido " + producto);
+
 		}
 		if (this.siguiente > 1){
 			ordenar();
@@ -87,17 +89,20 @@ class Almacen{
 	 */
 	Producto buscar(String nombre){
 		Producto producto = null;
-		int mitad, limiteInferior, limiteSuperior;
-		boolean comparar;
 		
-		mitad = 0;
-		comparar = false;
-		limiteInferior = 0;
-		limiteSuperior = this.siguiente - 1;
+			int mitad, limiteInferior, limiteSuperior;
+			boolean comparar;
 		
-		while ((limiteInferior <= limiteSuperior) && (producto == null)){
+			mitad = 0;
+			comparar = false;
+			limiteInferior = 0;
+			limiteSuperior = this.siguiente-1;
+		
+			while ((limiteInferior <= limiteSuperior) && (producto == null)){
 			
 			mitad = (limiteInferior + limiteSuperior) / 2;
+			System.out.println(mitad);
+			System.out.println(limiteSuperior);
 			if (!this.productos[mitad].esIgualA(nombre)){
 				comparar = this.productos[mitad].esMenor(nombre);
 				if (comparar){
@@ -108,6 +113,8 @@ class Almacen{
 			}else{
 				producto = this.productos[mitad];
 			}
+			System.out.println(producto);
+		
 		}
 		return producto;
 	}
@@ -132,7 +139,7 @@ class Almacen{
 		int limiteSuperior, limiteInferior;
 		boolean fin, cambiado;
 
-		limiteSuperior = productos.length;
+		limiteSuperior = this.siguiente;
 		limiteInferior = -1;
 		fin = false;
 
@@ -162,6 +169,7 @@ class Almacen{
 			}
 		}
 	}
+	
 
 	/**
 	 * Devuelve una cadena de caracteres con los productos del almacen ordenados.

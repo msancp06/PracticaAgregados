@@ -95,7 +95,7 @@ class Producto{
 	 * falso en otro caso
 	 */
 	boolean esIgualA(String nombre){
-		return nombre.equalsIgnoreCase(nombre);
+		return this.nombre.equalsIgnoreCase(nombre);
 	}
 
 	/**
